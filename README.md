@@ -1,2 +1,2 @@
 # react-practice
-rep for practice 
+rep for react practice 
