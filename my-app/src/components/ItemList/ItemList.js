@@ -1,5 +1,6 @@
 import "./ItemList.css"
 import Item from "../Item/Item.js"
+import Timer from "../Timer/Timer.js"
 
 function ItemList({ title, children }) {
 
@@ -17,7 +18,7 @@ function ItemList({ title, children }) {
 
     return (
         <div>
-            <h2 className="title">{ title }</h2>
+            <h2 className="title">{ title }  <Timer/> </h2>
             <div className="items-list">
                 { children }
             </div> 
