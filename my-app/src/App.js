@@ -1,21 +1,30 @@
 import './App.css';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Timer from "./components/Timer";
-import firebase from "./firebase";
+import firebase, { onMessageListener } from "./firebase";
 
 function App() {
+
+    // need to get a token for messaging
     useEffect(()=>{
         const msg = firebase.messaging();
         msg.requestPermission().then(()=>{
-          return msg.getToken({ vapidKey: "BCJGMH9V106wtoEdG_QQP-CjTUnHwm7tsJtVW5WCqRZEII_W_r9FWbzmnE1iWcpWQHMHa6ZR3PcAre5MU0Wr5WA" });
+          return msg.getToken({ vapidKey: "BCg1U7jwGD0yl35D4WMLuHnpgSN_IaN5Z-4YCjcL7J6tyTmXV2deTe-LlRqW4z_pGeKyr6vXYh9Ahl0m0N2CsK0" });
         }).then((data)=>{
           console.warn("token: ", data)
         })
     });
 
+    const [message, setMessage] = useState("");
+
+    onMessageListener().then(payload => {
+        setMessage(`title: ${payload.notification.title}, body: ${[payload.notification.body]}`)
+    });
+
     return (
     <div className="App">
         <Timer />
+        <p>{ message }</p>
     </div>
   );
 }
