@@ -25,6 +25,7 @@ export const onMessageListener = () =>
         });
     });
 
+// try to trigger notification on client
 export const triggerNotification = async (token) => {
     const endpoint = `https://fcm.googleapis.com//v1/projects/${firebaseConfig.projectId}/messages:send`;
     const data = {
