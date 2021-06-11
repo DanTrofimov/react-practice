@@ -19,3 +19,7 @@
     padding: 10px;
     cursor: pointer;
 }
+
+.message-img {
+    max-width: 300px;
+}

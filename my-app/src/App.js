@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from "react";
-import { messaging, onMessageListener } from "./firebase";
+import firebase, { messaging, onMessageListener, triggerNotification } from "./firebase";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 
@@ -14,12 +14,14 @@ function App() {
           // here we can send a token to our backend
             if (token) {
                 console.warn("token: ", token)
+                setToken(token);
                 // here we can send a token to our backend
             }
         })
     });
 
     const [message, setMessage] = useState({ title: "", body: "", imgSrc: "" });
+    const [token, setToken] = useState("");
     const [modalOpen, setModalOpen] = useState(false);
 
     // getting data from the notification
@@ -30,18 +32,18 @@ function App() {
             imgSrc: payload.notification.image
         });
         setModalOpen(true)
+        console.log(firebase);
     });
-
-    // const triggerNotification = () => {
-    //
-    // }
 
     return (
     <div className="app">
         <div className="info">
             <img src="https://firebase.google.com/downloads/brand-guidelines/PNG/logo-vertical.png" alt="logo" className="logo"/>
             <p>React App + FCM</p>
-            <button className="trigger-button">
+            <button
+                className="trigger-button"
+                onClick={() => triggerNotification(token)}
+            >
                 trigger push
             </button>
         </div>
@@ -50,7 +52,7 @@ function App() {
             <p>
                 { message.body }
             </p>
-            <img src={message.imgSrc} alt=""/>
+            <img src={message.imgSrc} alt="" className="message-img"/>
         </Modal>
     </div>
   );
