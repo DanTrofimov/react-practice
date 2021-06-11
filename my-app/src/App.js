@@ -9,7 +9,7 @@ function App() {
     useEffect(()=>{
         const msg = firebase.messaging();
         msg.requestPermission().then(()=>{
-          return msg.getToken({ vapidKey: "BCg1U7jwGD0yl35D4WMLuHnpgSN_IaN5Z-4YCjcL7J6tyTmXV2deTe-LlRqW4z_pGeKyr6vXYh9Ahl0m0N2CsK0" });
+          return msg.getToken({ vapidKey: "BM9Z6J_un2iJYmPUBBbNNZIvKdUun1iDjNDbSNQX_fot77rAKAA4QSIu965UbYSTncKLvcVx9RInzLSpqMglBEk" });
         }).then((data)=>{
           console.warn("token: ", data)
         })

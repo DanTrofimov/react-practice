@@ -2,12 +2,12 @@ import firebase from 'firebase';
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyBZXhCCwtfiomKBHUgiOUMV9SiwcywTGMk",
-    authDomain: "my-app-bf4f3.firebaseapp.com",
-    projectId: "my-app-bf4f3",
-    storageBucket: "my-app-bf4f3.appspot.com",
-    messagingSenderId: "825377096146",
-    appId: "1:825377096146:web:b05f5da7f28f29eea0880b"
+    apiKey: "AIzaSyC3kc6SP4Qr_nQ29Fo5rlZ3o0Pv05c9Bsg",
+    authDomain: "push-test-b191a.firebaseapp.com",
+    projectId: "push-test-b191a",
+    storageBucket: "push-test-b191a.appspot.com",
+    messagingSenderId: "395448917099",
+    appId: "1:395448917099:web:56181422f0e45c1a9ea52e"
 };
 
 // Initialize Firebase
