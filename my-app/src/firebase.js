@@ -13,7 +13,7 @@ var firebaseConfig = {
 // init of client firebase
 firebase.initializeApp(firebaseConfig);
 
-const messaging = firebase.messaging();
+export const messaging = firebase.messaging();
 
 export const onMessageListener = () =>
     new Promise((resolve) => {
