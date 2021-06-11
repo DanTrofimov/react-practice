@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 
-// Your web app's Firebase configuration
+// client web app's firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyC3kc6SP4Qr_nQ29Fo5rlZ3o0Pv05c9Bsg",
     authDomain: "push-test-b191a.firebaseapp.com",
@@ -10,7 +10,7 @@ var firebaseConfig = {
     appId: "1:395448917099:web:56181422f0e45c1a9ea52e"
 };
 
-// Initialize Firebase
+// init of client firebase
 firebase.initializeApp(firebaseConfig);
 
 const messaging = firebase.messaging();
