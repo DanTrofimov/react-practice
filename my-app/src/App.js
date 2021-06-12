@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { messaging, onMessageListener, triggerNotification } from "./firebase";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
-
 function App() {
 
     // need to get a token for messaging
