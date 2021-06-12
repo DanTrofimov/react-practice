@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from "react";
-import firebase, { messaging, onMessageListener, triggerNotification } from "./firebase";
+import { messaging, onMessageListener, triggerNotification } from "./firebase";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 
@@ -9,12 +9,11 @@ function App() {
     // need to get a token for messaging
     useEffect(()=>{
         messaging.requestPermission().then(()=>{
-          return messaging.getToken({ vapidKey: "BM9Z6J_un2iJYmPUBBbNNZIvKdUun1iDjNDbSNQX_fot77rAKAA4QSIu965UbYSTncKLvcVx9RInzLSpqMglBEk" });
-        }).then((token)=>{
+          return messaging.getToken({ vapidKey: process.env.REACT_APP_VAPID_KEY });
+        }).then((tokenReceived)=>{
           // here we can send a token to our backend
-            if (token) {
-                console.warn("token: ", token)
-                setToken(token);
+            if (tokenReceived) {
+                setToken(tokenReceived);
                 // here we can send a token to our backend
             }
         })
@@ -32,7 +31,6 @@ function App() {
             imgSrc: payload.notification.image
         });
         setModalOpen(true)
-        console.log(firebase);
     });
 
     return (
@@ -46,6 +44,7 @@ function App() {
             >
                 trigger push
             </button>
+            <p className="token">{ token }</p>
         </div>
         <Modal open={modalOpen} onClose={() => setModalOpen(false)} center>
             <h2>{ message.title }</h2>

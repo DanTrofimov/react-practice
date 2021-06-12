@@ -1,20 +1,20 @@
-// Scripts for firebase and firebase messaging
+// scripts for firebase and firebase messaging
 importScripts('https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/8.2.0/firebase-messaging.js');
 
-// Initialize the Firebase app in the service worker by passing the generated config
+// initialize the Firebase app in the service worker by passing the generated config
 var firebaseConfig = {
-    apiKey: "AIzaSyC3kc6SP4Qr_nQ29Fo5rlZ3o0Pv05c9Bsg",
-    authDomain: "push-test-b191a.firebaseapp.com",
-    projectId: "push-test-b191a",
-    storageBucket: "push-test-b191a.appspot.com",
-    messagingSenderId: "395448917099",
-    appId: "1:395448917099:web:56181422f0e45c1a9ea52e"
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID
 };
 
 firebase.initializeApp(firebaseConfig);
 
-// Retrieve firebase messaging
+// retrieve firebase messaging
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage(function(payload) {
