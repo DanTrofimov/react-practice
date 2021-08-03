@@ -1,4 +1,4 @@
-# Web-pushed with FCM (Firebase Cloud Messaging)
+# Web-pushes with FCM (Firebase Cloud Messaging)
 
 FCM allows us to generate on web-pushes server & receive them on client side.
 <p align="center">
