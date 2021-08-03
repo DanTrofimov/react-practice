@@ -4,6 +4,9 @@ import { messaging, onMessageListener, triggerNotification } from "./firebase";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 function App() {
+    const [message, setMessage] = useState({ title: "", body: "", imgSrc: "" });
+    const [token, setToken] = useState("");
+    const [modalOpen, setModalOpen] = useState(false);
 
     // need to get a token for messaging
     useEffect(()=>{
@@ -17,10 +20,6 @@ function App() {
             }
         })
     });
-
-    const [message, setMessage] = useState({ title: "", body: "", imgSrc: "" });
-    const [token, setToken] = useState("");
-    const [modalOpen, setModalOpen] = useState(false);
 
     // getting data from the notification
     onMessageListener().then(payload => {
