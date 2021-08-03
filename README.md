@@ -1,6 +1,6 @@
 # Web-pushes with FCM (Firebase Cloud Messaging)
 
-FCM allows us to generate on web-pushes server & receive them on client side.
+FCM allows us to generate web-pushes on server & receive them on client side.
 <p align="center">
     <img src="https://firebase.google.com/docs/cloud-messaging/images/diagram-FCM.png" alt="Architectural overview" width="500px"/>
 </p>
